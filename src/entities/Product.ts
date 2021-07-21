@@ -1,13 +1,15 @@
 import { ObjectType, Field, ID, Float, Int } from "type-graphql";
 import { Entity, BaseEntity, ObjectIdColumn, Column } from "typeorm";
-import { ObjectID } from "mongodb";
+// import { ObjectID } from "mongodb";
+import { ObjectId } from "mongodb";
 
-@ObjectType() //1
-@Entity() //2
-export class Product extends BaseEntity { //3
-  @Field(() => ID) //4
-  @ObjectIdColumn() //5
-  id: ObjectID;
+@ObjectType()
+@Entity()
+export class Product extends BaseEntity {
+  @Field(() => ID)
+  @ObjectIdColumn()
+  // id: ObjectID;
+  id: ObjectId;
   
   @Field()
   @Column() //6

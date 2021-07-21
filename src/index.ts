@@ -3,16 +3,17 @@ import { ApolloServer } from 'apollo-server-express';
 import Express from 'express';
 import { buildSchema } from 'type-graphql';
 import { createConnection } from "typeorm";
+import { ProductResolver } from './resolvers/ProductResolver';
 
 const startServer = async () => {
-  await createConnection(); // 1
-  const schema = await buildSchema({ // 2
-    ...we are using this part in the next section
+  await createConnection();
+  const schema = await buildSchema({
+    resolvers: [ProductResolver]
   });
-  const app = Express(); //3
-  const apolloServer = new ApolloServer({ schema }); //4
-  
-  apolloServer.applyMiddleware({ app }); // 5
+  const app = Express();
+  const apolloServer = new ApolloServer({ schema });
+
+  apolloServer.applyMiddleware({ app });
 
   app.listen(4000, () => {
     console.log('server started');
