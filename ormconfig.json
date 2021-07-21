@@ -1,0 +1,12 @@
+{
+  "type": "mongodb",
+  "host": "localhost",
+  "username": "db_username or remove if you don't need",
+  "password": "db_password or remove if you don't need",
+  "database": "you_db_name",
+  "port": "27017",
+  "synchronize": true,
+  "entities": [
+    "./src/entities/*.ts"
+  ]
+}
