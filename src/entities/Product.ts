@@ -12,7 +12,7 @@ export class Product extends BaseEntity {
   id: ObjectId;
   
   @Field()
-  @Column() //6
+  @Column()
   productName: string;
 
   @Field()
